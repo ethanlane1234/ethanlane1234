@@ -1,5 +1,6 @@
-/* Developed by Ethan Lane
-sources: uses the public, overfast api
+/*  Developed by Ethan Lane
+    Stated: 3/17/25
+    sources: uses the public, overfast api
 */
 
 
