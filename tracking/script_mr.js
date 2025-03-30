@@ -1,3 +1,6 @@
+/* currently this file contains no api keys if it ever does that needs to be hidden somehow this is just a framework that is help to have saved for later*/
+
+
 /* Get Acess Token */
 
 async function getAccessToken() {
