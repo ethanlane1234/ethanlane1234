@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OW Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="javascript" href="script_ow.js">
+    <link rel="html" href="index.html">
+    <link rel="html" href="mr_tracker">
+    <link rel="html" href="guide.html">
+    <link rel="html" href="about.html">
+</head>
+<body>
+    <header>
+        <h1>Owerwatch Tracker</h1>
+        <hr>
+        <h2 id="battletag">NightTrain-11944</h2> <!-- default profile -->
+    </header>
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="ow_tracker.html">OW2 Tracker</a>
+            <a href="mr_tracker.html">MR Tracker</a>
+            <a href="guide.html">Strategies and Guides</a>
+        </div>
+    </div>
+    <pre id="write"></pre>
+    <section class="main">
+        <div id="info">
+            <input type="text" id="battleTagInput" placeholder="Enter BattleTag" value="NightTrain-11944">
+            <button onclick="addPlayerData()">Add Player Data</button>
+
+            <label for="heroDropdown">Select a Hero:</label>
+            <select id="heroDropdown" onchange="displayStats()">
+                <option value="">-- Select a Hero --</option>
+            </select>
+
+            <label for="statDropdown">Select a Stat:</label>
+            <select id="statDropdown" onchange="displayStats()">
+                <option value="">-- Select a Stat --</option>
+            </select>
+        </div>
+        <div>
+            <canvas id="playerChart"></canvas>
+        </div>
+    </section>
+
+    <canvas id="statChart"></canvas>
+
+    <pre id="write"></pre>
+   
+
+    <h1>Hero Stats</h1>
+
+    <div id="stats-container">
+        <p>Select a hero to see their stats.</p>
+    </div>
+     <script src="tracking/script_ow.js"></script>
+</body>
+</html>
