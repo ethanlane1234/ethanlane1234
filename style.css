@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #201f1f;
+    margin: 0;
+    padding: 0;
+}
+header {
+    border: 5px;
+    margin: 5% 10%;
+    background-color: #464545;
+    color: #f4f4f4;
+}
+.main {
+    background-color: #007bff;
+    column-count: 2;
+    width: 90%;
+    margin: 0 auto;
+}
+#info {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#info img {
+    margin: 20px;
+    padding: 20px;
+    background-color: #464545;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+select, input[type="text"], button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+canvas {
+    float: left;
+    display: block;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 300px;
+    max-height: calc(100vh - 160px); /* Set max height relative to .main class */
+}
+
+#stats-container {
+    width: 95%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#stats-container h2 {
+    color: black;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #f4f4f4;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    margin: 1%;
+}
+
+.navbar {
+    margin: 0 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar button:hover {
+    background-color: #003f7f;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    background-color: #0056b3;
+    border-color: white;
+}
+
+.guides {
+    border: 5px;
+    padding: 10px;
+    margin: 25px;
+    height: 300px;
+    background-color: #f4f4f4;
+}
+
+.guides h1, h2 {
+    margin: 0;
+    margin-block-end: 5px;
+    color: white;
+    border: 5px;
+    padding: 5px;
+    background-color: #464545;
+}
+
+.guides p, ul {
+    background-color: #ccc;
+    padding: 5px;
+}
+
+.red {
+    position: fixed;
+    width: 50%;
+    height: 50%;
+}
+
+.red.top-right {
+    background-color: red;
+    width: 40%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.red.bottom-right {
+    background-color: orange;
+    width: 60%;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.orange {
+    position: fixed;
+    width: 50%;
+    height: 50%;
+}
+
+.orange.top-left {
+    background-color: orange;
+    width: 60%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.orange.bottom-left {
+    bottom: 0;
+    width: 40%;
+    left: 0;
+    z-index: -1;
+    background-color: red;
+}
