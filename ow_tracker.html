@@ -11,6 +11,8 @@
     <link rel="html" href="mr_tracker">
     <link rel="html" href="guide.html">
     <link rel="html" href="about.html">
+    <script src="script.js" async></script>
+    <script src="tracking/script_ow.js" defer></script>
 </head>
 <body>
     <header>
@@ -34,12 +36,12 @@
             <button onclick="addPlayerData()">Add Player Data</button>
 
             <label for="heroDropdown">Select a Hero:</label>
-            <select id="heroDropdown" onchange="displayStats()">
+            <select id="heroDropdown" onchange="displayStats();updateHeroStatChart();">
                 <option value="">-- Select a Hero --</option>
             </select>
 
             <label for="statDropdown">Select a Stat:</label>
-            <select id="statDropdown" onchange="displayStats()">
+            <select id="statDropdown" onchange="updateStatChart();">
                 <option value="">-- Select a Stat --</option>
             </select>
         </div>
@@ -48,16 +50,24 @@
         </div>
     </section>
 
-    <canvas id="statChart"></canvas>
-
-    <pre id="write"></pre>
-   
-
-    <h1>Hero Stats</h1>
+    <h2>Hero Stats</h2>
 
     <div id="stats-container">
         <p>Select a hero to see their stats.</p>
     </div>
-     <script src="tracking/script_ow.js"></script>
+
+    <h2>Bargraph of Heroes</h2>
+
+    <canvas id="statChart"></canvas>
+
+    <pre id="write"></pre>
+    
+    <pre id="write"></pre>
+
+    <h2>Bar Graph of Hero Stats</h2>
+
+    <canvas id="heroStatChart"></canvas>
+
+    <pre id="write"></pre>
 </body>
 </html>
