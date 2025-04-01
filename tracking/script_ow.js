@@ -24,8 +24,8 @@ ASYNC_main();
 /* ################################# API functions ###################################### */
 
 async function ASYNC_main() { // these variables/functions need to use the await keyword
-    if (!hero_stats){hero_stats = await getHeroes();}
-    if (!player_summary){player_summary = await getPlayerStatsSummary(selectedPlayer);}
+    if (!hero_stats){hero_stats = await getHeroes();console.log('fetching hero names');}
+    if (!player_summary){player_summary = await getPlayerStatsSummary(selectedPlayer);console.log('fetching player summary');}
     await populateDropdown('heroDropdown');
     await populateStatDropdown('statDropdown');
 

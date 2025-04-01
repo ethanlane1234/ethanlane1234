@@ -2,24 +2,24 @@
 
 ## About
 
-This website provides information, mostly in the form of player stats, for the video game Overwatch 2.
+This website provides tools and information, primarily in the form of player stats, for the video games Overwatch 2 and Marvel Rivals.
 
 ## Copyright
 
-To avoid copyright issues as Overwatch is a copyrighted game, this page contains no copyrighted images and such from the game.
-This website also uses a public API called Overfast API:
-- [Overfast API](https://overfast-api.tekrop.fr/)
+To avoid copyright issues, as Overwatch and Marvel Rivals are copyrighted games, this page contains no copyrighted images or assets from the games.
+This website also uses public APIs:
+- [Overfast API](https://overfast-api.tekrop.fr/) for Overwatch 2 data.
+- [Marvel Rivals API](https://mrapi.org/) for Marvel Rivals data.
 
 ## Pages
 
 ### index.html
 
-The index page serves as the homepage for the Overwatch Tracker website.
+The index page serves as the homepage for the Overwatch Tracker website. It provides navigation to other sections of the site.
 
 ### about.html
 
-The about page explains the purpose of the website, as well as providing information about where the data was sourced, and disclaimers about copyright since Overwatch 2 is a copyrighted game.
-This page contains links to the API as well as the official site that the API sources its data from:
+The about page explains the purpose of the website, provides information about data sources, and includes disclaimers about copyright. It contains links to the APIs and official sites:
 - [Overfast API](https://overfast-api.tekrop.fr/)
 - [Overwatch Heroes](https://overwatch.blizzard.com/en-us/heroes/)
 
@@ -29,73 +29,79 @@ The OW Tracker page allows users to enter a BattleTag and view player statistics
 
 ### mr_tracker.html
 
-The MR Tracker page is intended for tracking match results or other related data.
+The MR Tracker page is intended for tracking Marvel Rivals player data. It includes input fields for BattleTags and displays hero stats and charts.
+
+### guide.html
+
+The guide page provides strategies and guides for both Overwatch 2 and Marvel Rivals. It includes sections for strategies (e.g., Dive, Poke) and hero-specific guides.
 
 ### style.css
 
 The CSS file contains styling for the entire website, including layout, colors, and responsiveness.
 
-### randomApiOnInternet.js
+## JavaScript Files
 
-This JavaScript file contains functions to interact with the Overfast API and update the player statistics chart.
+### script.js
+
+This file contains utility functions for managing session storage and retrieving player and hero data.
 
 #### Functions
 
-- `getPlayer(BattleTag)`: Fetches player data for the given BattleTag and updates the chart.
+- `getPlayersFromSession()`: Retrieves all players stored in session storage.
+- `getPlayerFromSession(selectedPlayer)`: Retrieves a specific player's data from session storage.
+- `addPlayerToSession(playerName, playerData)`: Adds a player's data to session storage.
+- `getHeroesFromSession()`: Retrieves hero data from session storage.
+
+### tracking/script_ow.js
+
+This file contains functions to interact with the Overfast API and update Overwatch 2 player statistics.
+
+#### Functions
+
+- `getPlayer(BattleTag)`: Fetches player data for the given BattleTag.
 - `getPlayerStatsSummary(BattleTag)`: Fetches a summary of player statistics for the given BattleTag.
 - `getHeroes()`: Fetches a list of all heroes.
-- `iterateStorage(jsonData)`: Logs hero names and roles from the provided JSON data.
 - `addPlayerData()`: Adds player data to the chart.
 - `updateChart()`: Updates the chart with the selected player's statistics.
 - `populateDropdown(elementId)`: Populates a dropdown menu with hero names.
 - `populateStatDropdown(elementId)`: Populates a dropdown menu with player statistics.
-- `getHeroStats(heroName)`: Fetches statistics for the specified hero.
 - `displayStats()`: Displays statistics for the selected hero.
-- `saveData(data)`: Saves data to a DOM element for display.
 
-#### Usage
+### tracking/script_mr.js
 
-1. **Populate Dropdowns**: The `populateDropdown` and `populateStatDropdown` functions are called to populate the hero and stat dropdown menus.
-2. **Display Stats**: The `displayStats` function is used to display the selected hero's statistics.
-3. **Update Chart**: The `updateChart` function updates the chart with the selected player's statistics.
-4. **Add Player Data**: The `addPlayerData` function is used to add player data to the chart.
+This file contains functions to interact with the Marvel Rivals API.
 
-#### Example
+#### Functions
 
-To fetch and display player data for a specific BattleTag:
+- `getAccessToken()`: Retrieves an access token for API authentication.
+- `getProfile(battletag)`: Fetches player profile data for the given BattleTag.
 
-```javascript
-getPlayer('NightTrain-11944');
-```
+### generator/generator.js
 
-To update the chart with the selected player's statistics:
+This file generates random BattleTags and validates them using the Overfast API.
 
-```javascript
-updateChart();
-```
+#### Functions
 
-To display statistics for the selected hero:
-
-```javascript
-displayStats();
-```
+- `fetchKnownUsernames()`: Fetches a list of known usernames from a local JSON file.
+- `generateBattleTag(username)`: Generates a random BattleTag for a given username.
+- `checkValidBattleTag(battleTag)`: Checks if a BattleTag is valid using the Overfast API.
+- `findValidBattleTag()`: Attempts to find a valid BattleTag by iterating through known usernames.
 
 ## Dependencies
 
-- Chart.js: Used for rendering the player statistics chart.
-- Fetch API: Used for making HTTP requests to the Overfast API.
+- Chart.js: Used for rendering player statistics charts.
+- Fetch API: Used for making HTTP requests to the Overfast and Marvel Rivals APIs.
 
 ## Setup
 
-1. Include the Chart.js library in your HTML file.
-2. Ensure you have an HTML element with the ID `playerChart` for the chart.
-3. Ensure you have dropdown elements with the IDs `heroDropdown` and `statDropdown` for selecting heroes and stats.
-4. Ensure you have a container element with the ID `stats-container` for displaying hero stats.
+1. Include the Chart.js library in your HTML files.
+2. Ensure you have HTML elements with the appropriate IDs for charts, dropdowns, and stats containers.
+3. Configure API endpoints and access tokens as needed.
 
 ## Notes
 
-- The `selectedPlayer` variable is used to keep track of the currently selected player.
 - The `sessionStorage` is used to cache API responses for faster access.
+- The `selectedPlayer` variable is used to keep track of the currently selected player.
 
 ## Goal
 
