@@ -2,7 +2,7 @@
     started: 3/21/25
 */
 
-
+/* merged with script_ow.js 4/1/23 */
 
 function getPlayersFromSession() {
     const playerNames = JSON.parse(sessionStorage.getItem('playerNames') || '[]'); // Ensure valid JSON

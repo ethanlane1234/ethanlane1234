@@ -11,6 +11,10 @@
 /* developed by Ethan Lane 
     started: 3/21/25
 */
+/**
+ * Retrieves a list of players stored in sessionStorage.
+ * @returns {Object} An object containing player names as keys and their data as values.
+ */
 function getPlayersFromSession() {
     const playerNames = JSON.parse(sessionStorage.getItem('playerNames') || '[]'); // Ensure valid JSON
     const players = {};
@@ -23,10 +27,20 @@ function getPlayersFromSession() {
     return players;
 }
 
+/**
+ * Retrieves the data of a specific player from sessionStorage.
+ * @param {string} selectedPlayer - The BattleTag of the player to retrieve.
+ * @returns {Object|null} The player's data or null if not found.
+ */
 function getPlayerFromSession(selectedPlayer) {
     return JSON.parse(sessionStorage.getItem(selectedPlayer));
 }
 
+/**
+ * Stores a player's summary data in sessionStorage.
+ * @param {string} playerName - The BattleTag of the player.
+ * @param {Object} playerData - The player's summary data to store.
+ */
 function addPlayerToSession(playerName, playerData) {
     const playerNames = JSON.parse(sessionStorage.getItem('playerNames')) || [];
     if (!playerNames.includes(playerName)) {
@@ -36,6 +50,10 @@ function addPlayerToSession(playerName, playerData) {
     sessionStorage.setItem(playerName, JSON.stringify(playerData));
 }
 
+/**
+ * Retrieves hero data from sessionStorage.
+ * @returns {Object|null} The hero data or null if not found.
+ */
 function getHeroesFromSession() {
     return JSON.parse(sessionStorage.getItem('heroes'));
 }
@@ -54,6 +72,10 @@ ASYNC_main();
 
 /* ################################# API functions ###################################### */
 
+/**
+ * Main asynchronous function to initialize data and populate dropdowns.
+ * Fetches hero stats and player summaries if not already stored.
+ */
 async function ASYNC_main() { // these variables/functions need to use the await keyword
     if (!hero_stats){hero_stats = await getHeroes();console.log('fetching hero names');}
     if (!player_summary){player_summary = await getPlayerStatsSummary(selectedPlayer);console.log('fetching player summary');}
@@ -65,7 +87,10 @@ async function ASYNC_main() { // these variables/functions need to use the await
     
 }
 
-/* Gets all information about a player */
+/**
+ * Fetches all information about a player (deprecated).
+ * @param {string} BattleTag - The BattleTag of the player.
+ */
 async function getPlayer(BattleTag) { /* depreciated */
     var url = 'https://overfast-api.tekrop.fr/players/' + BattleTag;
     try {
@@ -80,7 +105,12 @@ async function getPlayer(BattleTag) { /* depreciated */
         console.error(error, 'not ok');
     }
 }
-/* Gets stat summary information about a player */
+
+/**
+ * Fetches stat summary information about a player.
+ * @param {string} BattleTag - The BattleTag of the player.
+ * @returns {Object|null} The player's stat summary or null if an error occurs.
+ */
 async function getPlayerStatsSummary(BattleTag) {
     var url = 'https://overfast-api.tekrop.fr/players/' + BattleTag + '/stats/summary';
     try {
@@ -94,7 +124,11 @@ async function getPlayerStatsSummary(BattleTag) {
         console.error(error, 'not ok');
     }
 }
-/* Gets all information about all heroes */
+
+/**
+ * Fetches all information about all heroes.
+ * @returns {Object|null} The hero data or null if an error occurs.
+ */
 async function getHeroes() {
     var url = 'https://overfast-api.tekrop.fr/heroes';
     try {
@@ -110,8 +144,9 @@ async function getHeroes() {
     }
 }
 
-/* Graphing */
-/* adds a piece of selected player data to the chart */
+/**
+ * Adds a selected player's data to the chart and updates the display.
+ */
 async function addPlayerData() {
     const battleTagInput = document.getElementById('battleTagInput').value;
     if (battleTagInput != selectedPlayer) {
@@ -129,15 +164,19 @@ async function addPlayerData() {
 
 /* ################################# MISC ####################################### */
 
-/* iterates though a json file */
+/**
+ * Iterates through a JSON object and logs hero names and roles.
+ * @param {Object} jsonData - The JSON object containing hero data.
+ */
 function iterateStorage(jsonData) {
     for (const hero of jsonData) {
         console.log(`Name: ${hero.name}, Role: ${hero.role}`);
     }    
 }
 
-
-/* dsiplays all stats related to the currently selected hero in regard to the selected player */
+/**
+ * Displays stats for the currently selected hero and player.
+ */
 function displayStats() {
     const heroName = document.getElementById("heroDropdown").value;
     const statsContainer = document.getElementById("stats-container");
@@ -156,6 +195,10 @@ function displayStats() {
 
 /* ################################# Graphing ####################################### */
 
+/**
+ * Clears all data and labels from a given chart.
+ * @param {Object} chart - The Chart.js chart instance to clear.
+ */
 function clearChart(chart) {
     chart.data.labels = []; // Clear labels
     chart.data.datasets.forEach((dataset) => {
@@ -204,7 +247,10 @@ const playerChart = new Chart(ctx, {
         }
     }
 });
-/* updates the chart with the requested information */
+
+/**
+ * Updates the player chart with selected hero and stat data.
+ */
 async function updateChart() {
 
     data = player_summary;
@@ -235,8 +281,11 @@ async function updateChart() {
     playerChart.data.datasets[0].data.push(playerValue); //graph data
     playerChart.update();
 }
-/* Drop Down Menu */
-/* adds values to hero dropdown */
+
+/**
+ * Populates a dropdown menu with hero names.
+ * @param {string} elementId - The ID of the dropdown element.
+ */
 async function populateDropdown(elementId) {
     const dropdown = document.getElementById(elementId);
     heroes = hero_stats;
@@ -247,7 +296,11 @@ async function populateDropdown(elementId) {
         dropdown.appendChild(option);
     });
 }
-/* adds values to stat dropdown */
+
+/**
+ * Populates a dropdown menu with available stats.
+ * @param {string} elementId - The ID of the dropdown element.
+ */
 async function populateStatDropdown(elementId) { 
     const dropdown = document.getElementById(elementId);
     stat = player_summary; // needs to be async so that we can await here
@@ -259,6 +312,11 @@ async function populateStatDropdown(elementId) {
     }
 }
 
+/**
+ * Retrieves stats for a specific hero for the selected player.
+ * @param {string} heroName - The name of the hero.
+ * @returns {Object|string} The hero's stats or a "Hero not found" message.
+ */
 async function getHeroStats(heroName) {
     statsData = player_summary;
     if (statsData.heroes[heroName]) {
@@ -268,12 +326,13 @@ async function getHeroStats(heroName) {
     }
 }
 
-
-/* saves data to a json format */
+/**
+ * Saves data to a JSON format and displays it in a designated element.
+ * @param {Object} data - The data to save.
+ */
 function saveData(data) {
     document.getElementById('write').innerText = JSON.stringify(data, null, 2);
 }
-
 
 /* ################################# Chart 2 ####################################### */
 
@@ -319,7 +378,9 @@ const statChart = new Chart(ctx2, {
     }
 });
 
-/* updates the chart with the requested information */
+/**
+ * Updates the stat chart with data for all heroes.
+ */
 function updateStatChart() { /* call is nested inside call to other chart to reduce api calls */
     data = player_summary;
     var playerValue = data.heroes;
@@ -341,9 +402,7 @@ function updateStatChart() { /* call is nested inside call to other chart to red
     }
 }
 
-
 /* ################################# Chart 3 ####################################### */
-
 
 /* graph of all stats per hero selection */
 /* The graph */
@@ -387,7 +446,9 @@ const heroStatChart = new Chart(ctx3, {
     }
 });
 
-/* updates the chart with the requested information */
+/**
+ * Updates the hero stat chart with data for the selected hero.
+ */
 function updateHeroStatChart() { /* call is nested inside call to other chart to reduce api calls */
     data = player_summary;
     var playerValue = data.heroes;
