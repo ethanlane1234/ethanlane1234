@@ -88,10 +88,11 @@ async function ASYNC_main() { // these variables/functions need to use the await
 }
 
 /**
- * Fetches all information about a player (deprecated).
+ * Fetches all information about a player.
  * @param {string} BattleTag - The BattleTag of the player.
+ * @deprecated This function is no longer used.
  */
-async function getPlayer(BattleTag) { /* depreciated */
+async function getPlayer(BattleTag) {
     var url = 'https://overfast-api.tekrop.fr/players/' + BattleTag;
     try {
         const response = await fetch(url);
