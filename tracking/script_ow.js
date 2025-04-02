@@ -4,11 +4,11 @@
                                                                                                                                         3/30/25 - 4/1/25 6:45pm worked on optiming code for less api calls and storaging data
                                                                                                                                             then I committed it realized I didnt want a certain file committed 3 commits later and nuked all that progress
                                                                                                                                             was able to restore from a small edit made with github copliot a couple days ago.
-
 */
 /* ####################################################################### */
 /* combine script.js */
-/* developed by Ethan Lane 
+/* 
+    developed by Ethan Lane 
     started: 3/21/25
 */
 /**
@@ -151,10 +151,15 @@ async function addPlayerData() {
     const battleTagInput = document.getElementById('battleTagInput').value;
     if (battleTagInput != selectedPlayer) {
         selectedPlayer = battleTagInput;
-        player_summary = await getPlayerStatsSummary(selectedPlayer);
-        addPlayerToSession(selectedPlayer, player_summary);
+        if (selectedPlayer in getPlayersFromSession()) {
+            player_summary = getPlayerFromSession(selectedPlayer);
+            console.log('Variables Update FROM SESSION FORMAT\nname:', selectedPlayer, 'summary:', player_summary);
+        } else {
+            player_summary = await getPlayerStatsSummary(selectedPlayer);
+            addPlayerToSession(selectedPlayer, player_summary);
+            console.log('Variables Update FROM FETCH\nname:', selectedPlayer, 'summary:', player_summary);
+        }
         document.getElementById('battletag').innerText = `BattleTag: ${selectedPlayer}`; // Update the BattleTag display
-        console.log('Variables Update\nname:', selectedPlayer, 'summary:', player_summary);
     }
     updateChart();
     updateStatChart();
