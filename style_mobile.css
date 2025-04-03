@@ -11,6 +11,9 @@ header {
     margin: 5% 10%;
 
 }
+.header-content {
+    padding-top: 60%;
+}
 .main {
     background-color: #007bff;
     width: 90%;
@@ -100,7 +103,6 @@ pre {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20%;
 }
 
 .navbar button:hover {
