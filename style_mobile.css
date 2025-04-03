@@ -6,9 +6,10 @@ body {
 }
 header {
     border: 5px;
-    margin: 5% 10%;
     background-color: #464545;
     color: #f4f4f4;
+    margin: 5% 10%;
+
 }
 .main {
     background-color: #007bff;
@@ -99,6 +100,7 @@ pre {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 20%;
 }
 
 .navbar button:hover {
@@ -189,4 +191,92 @@ pre {
     left: 0;
     z-index: -1;
     background-color: red;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    header {
+        margin: 5%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #info {
+        margin: 5%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    #info img {
+        margin: 0 auto;
+        display: block;
+        width: 100px;
+        height: 100px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .guides {
+        margin: 10px;
+        padding: 10px;
+        height: auto;
+        box-sizing: border-box;
+    }
+
+    .red, .orange {
+        width: 100%;
+        height: auto;
+    }
+
+    .red.top-right, .orange.top-left {
+        width: 100%;
+    }
+
+    .red.bottom-right, .orange.bottom-left {
+        width: 100%;
+    }
+
+    canvas {
+        margin: 10px auto;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        overflow: hidden;
+    }
+
+    #stats-container {
+        width: 100%;
+        margin: 10px auto;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow-x: auto;
+    }
+
+    pre {
+        font-size: 12px;
+        padding: 10px;
+        overflow-wrap: break-word;
+    }
 }

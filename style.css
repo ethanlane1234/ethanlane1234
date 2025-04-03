@@ -135,7 +135,8 @@ pre {
     border: 5px;
     padding: 10px;
     margin: 25px;
-    height: 300px;
+    min-height: 300px;
+    height: flex;
     background-color: #f4f4f4;
 }
 
