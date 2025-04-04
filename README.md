@@ -11,6 +11,8 @@ This website also uses public APIs:
 - [Overfast API](https://overfast-api.tekrop.fr/) for Overwatch 2 data.
 - [Marvel Rivals API](https://mrapi.org/) for Marvel Rivals data.
 
+**Note:** All pictures used in this project are self-made.
+
 ## Pages
 
 ### index.html
