@@ -6,10 +6,11 @@ body {
 }
 header {
     border: 5px;
-    margin: 5% 10%;
+    margin: 10% 10%;
     background-color: #464545;
     color: #f4f4f4;
 }
+
 .main {
     background-color: #007bff;
     column-count: 2;
