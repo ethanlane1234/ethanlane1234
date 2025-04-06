@@ -1,4 +1,4 @@
-# OverwatchTracker
+# Hero Shooter Strageties, Guides, and Tracking
 
 ## About
 
@@ -9,6 +9,7 @@ This website provides tools and information, primarily in the form of player sta
 To avoid copyright issues, as Overwatch and Marvel Rivals are copyrighted games, this page contains no copyrighted images or assets from the games.
 This website also uses public APIs:
 - [Overfast API](https://overfast-api.tekrop.fr/) for Overwatch 2 data.
+This website also may in the future use the following API
 - [Marvel Rivals API](https://mrapi.org/) for Marvel Rivals data.
 
 **Note:** All pictures used in this project are self-made.
