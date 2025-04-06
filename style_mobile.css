@@ -282,3 +282,8 @@ pre {
         overflow-wrap: break-word;
     }
 }
+footer {
+    font-size: 0.8em;
+     text-align: center;
+      background-color: whitesmoke;
+}

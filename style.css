@@ -201,3 +201,9 @@ pre {
     z-index: -1;
     background-color: red;
 }
+
+footer {
+    font-size: 0.8em;
+     text-align: center;
+      background-color: whitesmoke;
+}
