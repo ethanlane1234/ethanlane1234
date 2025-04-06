@@ -37,9 +37,24 @@ The MR Tracker page is intended for tracking Marvel Rivals player data. It inclu
 
 The guide page provides strategies and guides for both Overwatch 2 and Marvel Rivals. It includes sections for strategies (e.g., Dive, Poke) and hero-specific guides.
 
+## CSS Files
+
 ### style.css
 
-The CSS file contains styling for the entire website, including layout, colors, and responsiveness.
+This file contains the primary styling for the website, including layout, colors, and responsiveness for larger screens. Main Features:
+- Defines the overall layout and structure of the website.
+- Includes styles for headers, navigation bars, and content sections.
+- Provides styling for charts, dropdowns, and buttons.
+- Implements a two-column layout for the `.main` class on larger screens.
+
+### style_mobile.css
+
+This file provides additional styling for mobile devices and smaller screens
+Main Features:
+- Adjusts font sizes, margins, and paddings for better readability on smaller screens.
+- Converts the `.main` layout to a single-column format for mobile devices.
+- Ensures elements like navigation bars and charts are responsive and fit within smaller viewports.
+- Includes media queries to apply styles specifically for devices with a maximum width of 768px.
 
 ## JavaScript Files
 
