@@ -1,10 +1,7 @@
 /*  Developed by Ethan Lane
     Stated: 3/17/25
-    sources: uses the public, overfast api
-                                                                                                                                        3/30/25 - 4/1/25 6:45pm worked on optiming code for less api calls and storaging data
-                                                                                                                                            then I committed it realized I didnt want a certain file committed 3 commits later and nuked all that progress
-                                                                                                                                            was able to restore from a small edit made with github copliot a couple days ago.
-*/
+    sources: uses the publicly avaible, overfast api
+                                                                    
 /* ####################################################################### */
 /* combine script.js */
 /* 
