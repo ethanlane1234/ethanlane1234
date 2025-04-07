@@ -123,7 +123,7 @@ This file generates random BattleTags and validates them using the Overfast API.
 
 ## Goal
 
-This website is part of a final project for the class Principles of Software Development (CMSCI 256) at Mount St. Mary's University.
+Make a page for helpful stragetries and guides for different hero shooter games
 
 ## Contributors
 
