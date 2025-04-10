@@ -20,7 +20,7 @@
         <div class="header-content">
             <h1>Owerwatch Tracker</h1>
             <hr>
-            <h2 id="battletag"></h2> <!-- default profile -->
+            <h2 id="battletag">Default User</h2> <!-- default profile -->
         </div>
     </header>
     <div class="navbar">
@@ -35,7 +35,10 @@
     <pre id="write"></pre>
     <section class="main">
         <div id="info">
-            <input type="text" id="battleTagInput" placeholder="Enter BattleTag" value="NightTrain-11944">
+            <input type="text" id="battleTagInput" placeholder="Enter BattleTag" list="battleTagList">
+            <datalist id="battleTagList">
+                <!-- Options will be dynamically populated -->
+            </datalist>
             <button onclick="addPlayerData()">Add Player Data</button>
 
             <!-- <label for="heroDropdown">Select a Hero:</label> -->

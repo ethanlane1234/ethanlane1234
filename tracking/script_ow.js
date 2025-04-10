@@ -64,6 +64,7 @@ var mode = null;
 
 /* Main */
 ASYNC_main();
+document.addEventListener('DOMContentLoaded', populateBattleTagList);
 
 /* ####################################################################### */
 
@@ -335,6 +336,17 @@ async function getHeroStats(heroName) {
  */
 function saveData(data) {
     document.getElementById('write').innerText = JSON.stringify(data, null, 2);
+}
+
+/**
+ * Populates datalist on text input with BattleTags from stored in session storage.
+ */
+function populateBattleTagList() {
+    JSON.parse(sessionStorage.getItem('playerNames')).forEach(name => {
+        const option = document.createElement('option');
+        option.value = name;
+        document.getElementById('battleTagList').appendChild(option);
+    });
 }
 
 /* ################################# Chart 2 ####################################### */
