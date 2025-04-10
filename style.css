@@ -22,6 +22,7 @@ header {
 #info {
     margin: 20px;
     column-count: 2;
+    gap: 30px;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
