@@ -155,10 +155,20 @@ async function addPlayerData() {
             console.log('Variables Update FROM SESSION FORMAT\nname:', selectedPlayer, 'summary:', player_summary);
         } else {
             player_summary = await getPlayerStatsSummary(selectedPlayer);
+            if (!player_summary) {
+                alert('Player not found or does not exists\nThis could be due to the account being private or not existing\nIf you believe this is an error this input will not be accepted until your session storage is clear (close your browser and try again)');
+                console.log('player summary is null, data stored to prevent future requests');
+                return; // NULL value supplied to data, stops from breaking the program
+            }
             addPlayerToSession(selectedPlayer, player_summary);
             console.log('Variables Update FROM FETCH\nname:', selectedPlayer, 'summary:', player_summary);
         }
         document.getElementById('battletag').innerText = `BattleTag: ${selectedPlayer}`; // Update the BattleTag display
+    }
+    if (!player_summary) {
+        alert('Further input of this username is not accepted to reduce invalid requests\nIf you believe this is an error this input will not be accepted until your session storage is clear (close your browser and try again)');
+        console.log('forbidden battletag');
+        return; // NULL value supplied to data, stops from breaking the program
     }
     updateChart();
     updateStatChart();
@@ -258,8 +268,8 @@ const playerChart = new Chart(ctx, {
 async function updateChart() {
 
     data = player_summary;
-    
     var playerValue = data.heroes;
+
     if (!document.getElementById('heroDropdown').value) {
         alert('select a hero first');
         throw console.error('user error'); /* stops the user from breaking the program, ignore the errors from this line*/
