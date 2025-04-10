@@ -57,7 +57,7 @@ function getHeroesFromSession() {
 /* ####################################################################### */
 
 /* Gobal Variables */
-var selectedPlayer = 'NightTrain-11944'; /* default tag */
+var selectedPlayer = 'NightTrain-11944';
 var hero_stats = getHeroesFromSession();
 var player_summary = getPlayerFromSession(selectedPlayer);
 var mode = null;
@@ -480,12 +480,3 @@ function updateHeroStatChart() { /* call is nested inside call to other chart to
 
 //getPlayer('NightTrain-11944'); /* depreciated for now gives too much data */ 
 //addPlayerData('NightTrain-11944'); /* currently in use gives a managable amount of data */
-
-// on first startup values are defaulted to to prevent errors, but that only happens because we run a test case without selecting proper feilds
-// a user could also misuse it like this, so make this temporary solution better or permanent.
-
-/* Notes 
-3/26/25 -> to many api calls I need to simplify it to just grabbing the data once and storing it instead of repeated calls.
- There are also calls that I have that should only have to be called once
-*/
-
