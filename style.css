@@ -13,12 +13,15 @@ header {
 
 .main {
     background-color: #007bff;
-    column-count: 2;
+    column-count: flex;
+    display: flex;
+    flex-direction: column;
     width: 90%;
     margin: 0 auto;
 }
 #info {
     margin: 20px;
+    column-count: 2;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -44,9 +47,14 @@ label {
 select, input[type="text"], button {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 1px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+select:hover, input[type="text"]:hover, button:hover {
+    color: lightcoral;
+    background-color: #003f7f;
 }
 
 button {
