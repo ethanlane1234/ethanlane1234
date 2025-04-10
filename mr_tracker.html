@@ -37,13 +37,13 @@
             <input type="text" id="battleTagInput" placeholder="Enter BattleTag" value="NightTrain-11944">
             <button onclick="addPlayerData()">Add Player Data</button>
 
-            <label for="heroDropdown">Select a Hero:</label>
-            <select id="heroDropdown" onchange="displayStats()">
+            <!-- <label for="heroDropdown">Select a Hero:</label> -->
+            <select id="heroDropdown" onchange="displayStats();updateHeroStatChart();">
                 <option value="">-- Select a Hero --</option>
             </select>
 
-            <label for="statDropdown">Select a Stat:</label>
-            <select id="statDropdown" onchange="displayStats()">
+            <!-- <label for="statDropdown">Select a Stat:</label> -->
+            <select id="statDropdown" onchange="updateStatChart();">
                 <option value="">-- Select a Stat --</option>
             </select>
         </div>
