@@ -37,7 +37,7 @@
         <div id="info">
             <input type="text" id="battleTagInput" placeholder="Enter BattleTag" list="battleTagList">
             <datalist id="battleTagList">
-                <!-- Options will be dynamically populated -->
+                <!-- update from js -->
             </datalist>
             <button onclick="addPlayerData()">Add Player Data</button>
 
@@ -54,26 +54,21 @@
         <div>
             <canvas id="playerChart"></canvas>
         </div>
+
+        <h2>Hero Stats</h2>
+
+        <div id="stats-container">
+            <p>Select a hero to see their stats.</p>
+        </div>
+
+        <h2>Bargraph of Heroes</h2>
+
+        <canvas id="statChart"></canvas>
+
+        <h2>Bar Graph of Hero Stats</h2>
+
+        <canvas id="heroStatChart"></canvas>
     </section>
-
-    <h2>Hero Stats</h2>
-
-    <div id="stats-container">
-        <p>Select a hero to see their stats.</p>
-    </div>
-
-    <h2>Bargraph of Heroes</h2>
-
-    <canvas id="statChart"></canvas>
-
-    <pre id="write"></pre>
-    
-    <pre id="write"></pre>
-
-    <h2>Bar Graph of Hero Stats</h2>
-
-    <canvas id="heroStatChart"></canvas>
-
     <pre id="write"></pre>
     <footer>
         <p>
