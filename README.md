@@ -124,6 +124,10 @@ This file generates random BattleTags and validates them using the Overfast API.
 
 - Opening dev tools breaks the JS on the ow_tracker (discovered 4/12/2025)
   - likely due to deleting generator folder, or changing html files.
+### potential solution
+
+- remove async from script tag in html
+- or the better solution is to move items that need to wait for the DOM to event listeners
 
 ## Goal
 
