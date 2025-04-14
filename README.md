@@ -120,6 +120,10 @@ This file generates random BattleTags and validates them using the Overfast API.
 
 - The `sessionStorage` is used to cache API responses for faster access.
 - The `selectedPlayer` variable is used to keep track of the currently selected player.
+## Known Issues
+
+- Opening dev tools breaks the JS on the ow_tracker (discovered 4/12/2025)
+  - likely due to deleting generator folder, or changing html files.
 
 ## Goal
 
