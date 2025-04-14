@@ -6,9 +6,17 @@ body {
 }
 header {
     border: 5px;
-    margin: 10% 10%;
     background-color: #464545;
     color: #f4f4f4;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header-content {
+    padding-top: 7%;
+    text-align: center;
+    margin: 0 auto;
+    width: 90%;
 }
 
 .main {
