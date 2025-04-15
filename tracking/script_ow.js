@@ -49,17 +49,6 @@ function addPlayerToSession(playerName, playerData) {
 function getHeroesFromSession() {
     return JSON.parse(sessionStorage.getItem('heroes'));
 }
-/* ####################################################################### */
-
-/* Gobal Variables */
-var selectedPlayer = 'NightTrain-11944';
-var hero_stats = getHeroesFromSession();
-var player_summary = getPlayerFromSession(selectedPlayer);
-var mode = null;
-
-/* Main */
-ASYNC_main();
-document.addEventListener('DOMContentLoaded', populateBattleTagList);
 
 /* ################################# API functions ###################################### */
 
@@ -496,3 +485,15 @@ function updateHeroStatChart() { /* call is nested inside call to other chart to
 
 //getPlayer('NightTrain-11944'); /* depreciated for now gives too much data */ 
 //addPlayerData('NightTrain-11944'); /* currently in use gives a managable amount of data */
+
+/* ############################### MAIN ######################################## */
+
+/* Gobal Variables */
+var selectedPlayer = 'NightTrain-11944';
+var hero_stats = getHeroesFromSession();
+var player_summary = getPlayerFromSession(selectedPlayer);
+var mode = null;
+
+/* Main */
+ASYNC_main();
+document.addEventListener('DOMContentLoaded', populateBattleTagList);
