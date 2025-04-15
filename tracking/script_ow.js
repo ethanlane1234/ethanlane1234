@@ -145,6 +145,7 @@ async function getHeroes() {
 
 /**
  * Adds a selected player's data to the chart and updates the display.
+ * This is the is the main function to look at when tying together the graphs and the data from fetch requests
  */
 async function addPlayerData() {
     const battleTagInput = document.getElementById('battleTagInput').value;
