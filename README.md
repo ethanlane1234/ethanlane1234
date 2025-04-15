@@ -40,6 +40,14 @@ A **Summary of Differences** section highlights how the strategies differ betwee
 
 ## CSS Files
 
+### important definitions
+
+The CSS files try to mostly define generaric html tags, however there are some important classes to know
+
+- the `main` class is responsible for the blue background around most things on this website, as well as formatting headers in specific ways
+- the `info` class provides columns to content
+- the `navbar` class is used to position text at a fixed position across the top of the screen.
+
 ### `style.css`
 
 This file contains the primary styling for the website, including layout, colors, and responsiveness for larger screens.  
@@ -77,7 +85,6 @@ This file contains utility functions for managing session storage and retrieving
 This file contains functions to interact with the Overfast API and update Overwatch 2 player statistics.
 
 #### Functions:
-- `getPlayer(BattleTag)`: Fetches player data for the given BattleTag.
 - `getPlayerStatsSummary(BattleTag)`: Fetches a summary of player statistics for the given BattleTag.
 - `getHeroes()`: Fetches a list of all heroes.
 - `addPlayerData()`: Adds player data to the chart.
@@ -110,12 +117,17 @@ This file contains functions to interact with the Marvel Rivals API.
 - The `sessionStorage` is used to cache API responses for faster access.
 - The `selectedPlayer` variable is used to keep track of the currently selected player.
 
-## Known Issues
+## Known Issues (solved)
 
 - **Issue**: Opening dev tools breaks the JS on the `ow_tracker.html` page (discovered 4/12/2025).  
   **Potential Solution**:
   - Remove `async` from the `<script>` tag in the HTML.
   - Alternatively, move items that need to wait for the DOM into event listeners.
+
+  ### What You Need to Know
+
+  - The fix is to wait to load the script_ow.js file until the page is loaded which an lead to lo longer load times when opening the page.
+  - The defer attribute must be used when loading script_ow.js
 
 ## Goal
 
