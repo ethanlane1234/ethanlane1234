@@ -27,12 +27,17 @@ header {
     border-radius: 1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-#info img {
-    margin: 20%;
+img {
     padding: 5%;
     background-color: #464545;
     border-radius: 8em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    padding: 4px;
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
 }
 label {
     display: block;
