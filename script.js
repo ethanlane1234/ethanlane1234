@@ -3,59 +3,6 @@
     this file is a lighter weight than the tracking scripts, which dont need to be loaded on every page. However to run on the tracking pages, it is better to merge the files together than load both seperately.
 */
 
-/* merged with script_ow.js 4/1/23 */
-
-/**
- * Retrieves all players and their data from sessionStorage.
- * @returns {Object} An object containing player names as keys and their data as values.
- */
-function getPlayersFromSession() {
-    const playerNames = JSON.parse(sessionStorage.getItem('playerNames') || '[]'); // Ensure valid JSON
-    const players = {};
-    playerNames.forEach(name => {
-        const playerData = sessionStorage.getItem(name);
-        if (playerData && playerData !== "undefined") { // Check for valid JSON
-            players[name] = JSON.parse(playerData);
-        }
-    });
-    return players;
-}
-
-/**
- * Retrieves a specific player's data from sessionStorage.
- * @param {string} selectedPlayer - The name of the player to retrieve.
- * @returns {Object|null} The player's data as an object, or null if not found.
- */
-function getPlayerFromSession(selectedPlayer) {
-    return JSON.parse(sessionStorage.getItem(selectedPlayer));
-}
-
-/**
- * Adds a player and their data to sessionStorage.
- * @param {string} playerName - The name of the player to add.
- * @param {Object} playerData - The data of the player to store.
- */
-function addPlayerToSession(playerName, playerData) {
-    const playerNames = JSON.parse(sessionStorage.getItem('playerNames')) || [];
-    if (!playerNames.includes(playerName)) {
-        playerNames.push(playerName);
-        sessionStorage.setItem('playerNames', JSON.stringify(playerNames));
-    }
-    sessionStorage.setItem(playerName, JSON.stringify(playerData));
-}
-
-/**
- * Retrieves the list of heroes from sessionStorage.
- * @returns {Array|null} An array of heroes, or null if not found.
- */
-function getHeroesFromSession() {
-    return JSON.parse(sessionStorage.getItem('heroes'));
-}
-
-/* #################################### writes json to html in readable format ######################################### */
-
-/* these functions are not merged with tracking sripts */
-
 /**
  * Displays session data in a readable JSON format inside a given HTML element.
  * @param {HTMLElement} element - The HTML element where the session data will be displayed.
