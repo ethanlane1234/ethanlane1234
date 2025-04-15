@@ -2,12 +2,7 @@
     Stated: 3/17/25
     sources: uses the publicly avaible, overfast api
                                                                     
-/* ####################################################################### */
-/* combine script.js */
-/* 
-    developed by Ethan Lane 
-    started: 3/21/25
-*/
+/* ################################# Session Storage ####################################### */
 /**
  * Retrieves a list of players stored in sessionStorage.
  * @returns {Object} An object containing player names as keys and their data as values.
@@ -63,10 +58,7 @@ var player_summary = getPlayerFromSession(selectedPlayer);
 var mode = null;
 
 /* Main */
-ASYNC_main();
-document.addEventListener('DOMContentLoaded', populateBattleTagList);
-
-/* ####################################################################### */
+document.addEventListener('DOMContentLoaded', ASYNC_main, populateBattleTagList); // dynamically generated content should wait for DOM now
 
 /* ################################# API functions ###################################### */
 
