@@ -58,7 +58,8 @@ var player_summary = getPlayerFromSession(selectedPlayer);
 var mode = null;
 
 /* Main */
-document.addEventListener('DOMContentLoaded', ASYNC_main, populateBattleTagList); // dynamically generated content should wait for DOM now
+ASYNC_main();
+document.addEventListener('DOMContentLoaded', populateBattleTagList);
 
 /* ################################# API functions ###################################### */
 
