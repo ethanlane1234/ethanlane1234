@@ -21,7 +21,6 @@ header {
 
 .main {
     background-color: #007bff;
-    column-count: flex;
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -156,7 +155,6 @@ pre {
     border: 5px;
     padding: 10px;
     margin: 25px;
-    height: flex;
     background-color: white;
 }
 

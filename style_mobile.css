@@ -41,7 +41,7 @@ img {
 }
 label {
     display: block;
-    margin-bottom: 8;
+    margin-bottom: 0;
     font-weight: bold;
 }
 
