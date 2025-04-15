@@ -68,26 +68,6 @@ async function ASYNC_main() { // these variables/functions need to use the await
 }
 
 /**
- * Fetches all information about a player.
- * @param {string} BattleTag - The BattleTag of the player.
- * @deprecated This function is no longer used.
- */
-async function getPlayer(BattleTag) {
-    var url = 'https://overfast-api.tekrop.fr/players/' + BattleTag;
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error('not ok ' + response.statusText);
-        }
-        const data = await response.json();
-        sessionStorage.setItem(BattleTag, JSON.stringify(data));
-        document.getElementById('battletag').innerText = `BattleTag: ${BattleTag}`; // Update BattleTag tag
-    } catch (error) {
-        console.error(error, 'not ok');
-    }
-}
-
-/**
  * Fetches stat summary information about a player.
  * @param {string} BattleTag - The BattleTag of the player.
  * @returns {Object|null} The player's stat summary or null if an error occurs.
@@ -124,40 +104,6 @@ async function getHeroes() {
         return null;
     }
 }
-
-/**
- * Adds a selected player's data to the chart and updates the display.
- * This is the is the main function to look at when tying together the graphs and the data from fetch requests
- */
-async function addPlayerData() {
-    const battleTagInput = document.getElementById('battleTagInput').value;
-    if (battleTagInput != selectedPlayer) {
-        selectedPlayer = battleTagInput;
-        if (selectedPlayer in getPlayersFromSession()) {
-            player_summary = getPlayerFromSession(selectedPlayer);
-            console.log('Variables Update FROM SESSION FORMAT\nname:', selectedPlayer, 'summary:', player_summary);
-        } else {
-            player_summary = await getPlayerStatsSummary(selectedPlayer);
-            if (!player_summary) {
-                alert('Player not found or does not exists\nThis could be due to the account being private or not existing\nIf you believe this is an error this input will not be accepted until your session storage is clear (close your browser and try again)');
-                console.log('player summary is null, data stored to prevent future requests');
-                return; // NULL value supplied to data, stops from breaking the program
-            }
-            addPlayerToSession(selectedPlayer, player_summary);
-            console.log('Variables Update FROM FETCH\nname:', selectedPlayer, 'summary:', player_summary);
-        }
-        document.getElementById('battletag').innerText = `BattleTag: ${selectedPlayer}`; // Update the BattleTag display
-    }
-    if (!player_summary) {
-        alert('Further input of this username is not accepted to reduce invalid requests\nIf you believe this is an error this input will not be accepted until your session storage is clear (close your browser and try again)');
-        console.log('forbidden battletag');
-        return; // NULL value supplied to data, stops from breaking the program
-    }
-    updateChart();
-    updateStatChart();
-    updateHeroStatChart();
-}
-/*  ################################# Non async and No direct API calls ####################################### */
 
 /* ################################# MISC ####################################### */
 
@@ -479,6 +425,41 @@ function updateHeroStatChart() { /* call is nested inside call to other chart to
         heroStatChart.data.labels.push(key); // graph label
         heroStatChart.update();
     }
+}
+
+/* ################################# Update Graphs ####################################### */
+
+/**
+ * Adds a selected player's data to the chart and updates the display.
+ * This is the is the main function to look at when tying together the graphs and the data from fetch requests
+ */
+async function addPlayerData() {
+    const battleTagInput = document.getElementById('battleTagInput').value;
+    if (battleTagInput != selectedPlayer) {
+        selectedPlayer = battleTagInput;
+        if (selectedPlayer in getPlayersFromSession()) {
+            player_summary = getPlayerFromSession(selectedPlayer);
+            console.log('Variables Update FROM SESSION FORMAT\nname:', selectedPlayer, 'summary:', player_summary);
+        } else {
+            player_summary = await getPlayerStatsSummary(selectedPlayer);
+            if (!player_summary) {
+                alert('Player not found or does not exists\nThis could be due to the account being private or not existing\nIf you believe this is an error this input will not be accepted until your session storage is clear (close your browser and try again)');
+                console.log('player summary is null, data stored to prevent future requests');
+                return; // NULL value supplied to data, stops from breaking the program
+            }
+            addPlayerToSession(selectedPlayer, player_summary);
+            console.log('Variables Update FROM FETCH\nname:', selectedPlayer, 'summary:', player_summary);
+        }
+        document.getElementById('battletag').innerText = `BattleTag: ${selectedPlayer}`; // Update the BattleTag display
+    }
+    if (!player_summary) {
+        alert('Further input of this username is not accepted to reduce invalid requests\nIf you believe this is an error this input will not be accepted until your session storage is clear (close your browser and try again)');
+        console.log('forbidden battletag');
+        return; // NULL value supplied to data, stops from breaking the program
+    }
+    updateChart();
+    updateStatChart();
+    updateHeroStatChart();
 }
 
 /* test */
