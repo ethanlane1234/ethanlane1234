@@ -462,15 +462,10 @@ async function addPlayerData() {
     updateHeroStatChart();
 }
 
-/* test */
-
-//getPlayer('NightTrain-11944'); /* depreciated for now gives too much data */ 
-//addPlayerData('NightTrain-11944'); /* currently in use gives a managable amount of data */
-
 /* ############################### MAIN ######################################## */
 
 /* Gobal Variables */
-//var selectedPlayer = 'NightTrain-11944';
+//var selectedPlayer = 'NightTrain-11944'; old default profile, is not found since new update to game
 var selectedPlayer = 'TeKrop-2217'
 var hero_stats = getHeroesFromSession();
 var player_summary = getPlayerFromSession(selectedPlayer);
