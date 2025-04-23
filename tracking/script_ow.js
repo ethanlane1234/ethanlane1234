@@ -474,7 +474,6 @@ async function addPlayerData() {
 var selectedPlayer = 'TeKrop-2217'
 var hero_stats = getHeroesFromSession();
 var player_summary = getPlayerFromSession(selectedPlayer);
-if (!player_summary){alert('default profile cannot be found')}
 var mode = null;
 
 /* Main */
