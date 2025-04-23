@@ -470,11 +470,13 @@ async function addPlayerData() {
 /* ############################### MAIN ######################################## */
 
 /* Gobal Variables */
-var selectedPlayer = 'NightTrain-11944';
+//var selectedPlayer = 'NightTrain-11944';
+var selectedPlayer = 'TeKrop-2217'
 var hero_stats = getHeroesFromSession();
 var player_summary = getPlayerFromSession(selectedPlayer);
+if (!player_summary){alert('default profile cannot be found')}
 var mode = null;
 
 /* Main */
 ASYNC_main();
-document.addEventListener('DOMContentLoaded', populateBattleTagList);
+document.addEventListener('DOMContentLoaded', populateBattleTagList());
