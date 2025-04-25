@@ -5,23 +5,20 @@
     <meta name="Authors" content="Ethan Lane">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MR Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css" media="screen and (min-width: 701px)">
     <link rel="stylesheet" href="style_mobile.css" media="screen and (max-width: 700px)">
-    <link rel="javascript" href="script_ow.js">
-    <link rel="html" href="index.html">
-    <link rel="html" href="ow_tracker.html">
-    <link rel="html" href="guide.html">
-    <link rel="html" href="about.html">
-    <script src="tracking/script_mr.js" async></script>
+    <script src="tracking/script_mr.js" defer></script>
 </head>
 <body>
     <header>
         <div class="header-content">
             <h1>Marvel Rivals Tracker</h1>
             <hr>
-            <h2 id="battletag">stat tracker</h2> <!-- default profile -->
+            <h2 id="battletag">Default User</h2>
         </div>
     </header>
+    <pre></pre>
     <div class="navbar">
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -31,39 +28,31 @@
             <a href="guide.html">Strategies and Guides</a>
         </div>
     </div>
-    <pre></pre>
     <section class="main">
+        <h2>Enter Match Rating Change</h2>
         <div id="info">
-            <input type="text" id="battleTagInput" placeholder="Enter BattleTag" value="NightTrain-11944">
-            <button onclick="addPlayerData()">Add Player Data</button>
-
-            <!-- <label for="heroDropdown">Select a Hero:</label> -->
-            <select id="heroDropdown" onchange="displayStats();updateHeroStatChart();">
-                <option value="">-- Select a Hero --</option>
-            </select>
-
-            <!-- <label for="statDropdown">Select a Stat:</label> -->
-            <select id="statDropdown" onchange="updateStatChart();">
-                <option value="">-- Select a Stat --</option>
-            </select>
+            
+            <form id="dataForm">
+                <label for="yValue">Rating Gained/Lost:</label>
+                <input type="number" id="yValue" placeholder="Enter rating change" required>
+                <br>
+                <button type="submit">Add Data</button>
+            </form>
+            <br>
+            <button id="exportData">Export Data</button>
+            <input type="file" id="importData" accept=".json">
         </div>
         <div>
-            <canvas id="playerChart"></canvas>
+            <h2>Match Rating Tracker</h2>
+            <canvas id="dynamicChart"></canvas>
         </div>
-       
     </section>
     <pre></pre>
-
-    <h1>Hero Stats</h1>
-
-    <div id="stats-container">
-        <p>Select a hero to see their stats.</p>
-    </div>
     <footer>
         <p>
-            This site is a fan-made project for educational purposes and is not affiliated with or endorsed by Marvel, NetEase, or any of their affiliates. <br>
-            Marvel Rivals™ is a trademark of Marvel and NetEase, Inc. All characters and related elements © & ™ Marvel and NetEase, Inc. All rights reserved.
-          </p> 
+            This site is a fan-made project for educational purposes and is not affiliated with or endorsed by Blizzard Entertainment or Marvel. <br>
+            Overwatch® is a trademark or registered trademark of Blizzard Entertainment, Inc. Marvel Rivals® is a trademark of NetEase. All rights reserved.
+        </p>
     </footer>
 </body>
 </html>
