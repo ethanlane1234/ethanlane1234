@@ -495,7 +495,19 @@ var fallback = false;
 /* ############################### FallBack System ######################################## */
 
 
-let players = {};
+let players = loadPlayersFromSession(); // <--- Load players from session when the page loads
+
+function loadPlayersFromSession() {
+    const data = sessionStorage.getItem('players');
+    if (data) {
+        return JSON.parse(data);
+    }
+    return {};
+}
+
+function savePlayersToSession() {
+    sessionStorage.setItem('players', JSON.stringify(players));
+}
 /**
  * Manages formatting user input from the fallback UI to be used by the rest of the logic
  */
@@ -508,7 +520,9 @@ function addStat() {
     const playerName = nameInput.value.trim();
     const stat = statInput.value;
     const value = Number(valueInput.value);
-    const hero = heroInput.value;
+    const hero = heroInput.value.trim();
+
+    document.getElementById('battletag').innerHTML = 'Player: ' + playerName;
     
     // new player
     if (!players[playerName]) {
@@ -533,30 +547,44 @@ function addStat() {
 
     // update hero values
     players[playerName].heroes[hero][stat] = value;
-    players[playerName].heroes[hero].name = hero;
     
     // Display updated JSON and update player summary
     player_summary = players[playerName];
-    addPlayerToSession(selectedPlayer, JSON.stringify(players, null, 2)); // updates player summary in session storage
+    hero_stats = Object.keys(player_summary.heroes).map(heroName => (
+        {key: heroName, name: heroName}
+    ));
+    savePlayersToSession();
     document.getElementById('output').textContent = JSON.stringify(players, null, 2);
-    
 
-    // update dropdown menus
-    hero_stats = player_summary.heroes;
-    let temp = [];
-    for (const [key, value] of Object.entries(hero_stats)) {
-        temp.push({ key: key, name: key }); // combine key and name into one object
-    }
-    hero_stats = temp;
-
-    // adds heroes to session storage since that step is bypassed in the mode this function gets called
     sessionStorage.setItem('heroes', JSON.stringify(hero_stats));
+    updateDropdowns();
+}
+/**
+ * Used in fallback mode to update dropdowns
+ */
+function updateDropdowns() {
+    const heroDropdown = document.getElementById('heroDropdown');
+    const statDropdown = document.getElementById('statDropdown');
 
-    // set up dropdown boxes for loading manual data
-    document.getElementById('heroDropdown').innerHTML = '<option value="">-- Select a Hero --</option>';
-    document.getElementById('statDropdown').innerHTML = '<option value="">-- Select a Stat --</option>';
-    populateDropdown('heroDropdown');
-    populateStatDropdown('statDropdown');
+    if (heroDropdown) {
+        heroDropdown.innerHTML = '<option value="">-- Select a Hero --</option>';
+        hero_stats.forEach(hero => {
+            const option = document.createElement('option');
+            option.value = hero.key;
+            option.textContent = hero.name;
+            heroDropdown.appendChild(option);
+        });
+    }
+    if (statDropdown) {
+        statDropdown.innerHTML = '<option value="">-- Select a Stat --</option>';
+        const stats = ["games_lost", "games_played", "games_won", "kda", "time_played", "winrate"];
+        stats.forEach(stat => {
+            const option = document.createElement('option');
+            option.value = stat;
+            option.textContent = stat;
+            statDropdown.appendChild(option);
+        });
+    }
 }
 
 /**
@@ -566,8 +594,7 @@ function addStat() {
 function setFallBackUI() {
     // graph settings
     selectedPlayer = "Offline-Mode";
-    players = JSON.parse(getPlayerFromSession('Offline-Mode'));
-    if (!players){players={};} // if that last line returns null this fixes it
+    players = loadPlayersFromSession();
 
     const info = document.getElementById("info");
 
@@ -662,17 +689,18 @@ function setFallBackUI() {
     info.appendChild(explain);
     info.appendChild(document.createElement("h3")).textContent = "Currently Constructed Data:";
     info.appendChild(output);
+    
     addStat();
-    document.getElementById(output.id).addEventListener('keydown', setPlayerToOutput);
-    document.getElementById(output.id).addEventListener('keyup', setPlayerToOutput);
+    output.addEventListener('input', setPlayerToOutput, 2);
 }
 
 function setPlayerToOutput() {
     output = document.getElementById('output');
     try {
         players = JSON.parse(output.textContent);
-        addPlayerToSession('Offline Mode', JSON.stringify(players), null, 2);
+        savePlayersToSession();
         output.style.backgroundColor = 'rgb(62, 192, 73)';
+        updateDropdowns();
     } catch (error) {
         output.style.backgroundColor = '#c20f0f';
     }
