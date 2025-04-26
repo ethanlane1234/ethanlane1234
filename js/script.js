@@ -31,6 +31,7 @@ function getSessionData() {
     return sessionData;
 }
 
+
 /**
  * Recursively renders a JSON object into a collapsible HTML structure.
  * @param {Object} json - The JSON object to render.
@@ -43,6 +44,9 @@ function renderJSON(json, level = 0) {
 
     if (typeof json === 'object' && json !== null) {
         for (const key in json) {
+            if (key == {}) {
+                break;
+            }
             const keyElement = document.createElement('div');
             const value = json[key];
 
@@ -53,23 +57,28 @@ function renderJSON(json, level = 0) {
 
                 const keyLabel = document.createElement('span');
                 keyLabel.textContent = key;
-
+                
                 const childContainer = renderJSON(value, level + 1);
-                childContainer.style.display = 'none';
+                try {
+                    childContainer.style.display = 'none';
+                    toggle.addEventListener('click', () => {
+                        if (childContainer.style.display === 'none') {
+                            childContainer.style.display = 'block';
+                            toggle.textContent = '[-] ';
+                        } else {
+                            childContainer.style.display = 'none';
+                            toggle.textContent = '[+] ';
+                        }
+                    });
+    
+                    keyElement.appendChild(toggle);
+                    keyElement.appendChild(keyLabel);
+                    keyElement.appendChild(childContainer);
+                } catch (error) {
+                    // do noting
+                }
 
-                toggle.addEventListener('click', () => {
-                    if (childContainer.style.display === 'none') {
-                        childContainer.style.display = 'block';
-                        toggle.textContent = '[-] ';
-                    } else {
-                        childContainer.style.display = 'none';
-                        toggle.textContent = '[+] ';
-                    }
-                });
-
-                keyElement.appendChild(toggle);
-                keyElement.appendChild(keyLabel);
-                keyElement.appendChild(childContainer);
+                
             } else {
                 keyElement.textContent = `${key}: ${JSON.stringify(value)}`;
             }
