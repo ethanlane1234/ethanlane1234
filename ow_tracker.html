@@ -39,14 +39,14 @@
             <datalist id="battleTagList">
                 <!-- update from js -->
             </datalist>
-            <button onclick="addPlayerData()">Add Player Data</button>
+            <button id="addData" onclick="addPlayerData()">Add Player Data</button>
 
-            <!-- <label for="heroDropdown">Select a Hero:</label> -->
+            <label hidden id="heroLabel" for="heroDropdown">Select a Hero:</label>
             <select id="heroDropdown" onchange="displayStats();updateHeroStatChart();">
                 <option value="">-- Select a Hero --</option>
             </select>
 
-            <!-- <label for="statDropdown">Select a Stat:</label> -->
+            <label hidden id="statLabel" for="statDropdown">Select a Stat:</label>
             <select id="statDropdown" onchange="updateStatChart();">
                 <option value="">-- Select a Stat --</option>
             </select>
