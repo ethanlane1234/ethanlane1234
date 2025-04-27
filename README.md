@@ -80,11 +80,14 @@ This file contains utility functions for managing session storage and retrieving
 - `addPlayerToSession(playerName, playerData)`: Adds a player's data to session storage.
 - `getHeroesFromSession()`: Retrieves hero data from session storage.
 
-### `tracking/script_ow.js`
+### `js/script_ow.js`
 
 This file contains functions to interact with the Overfast API and update Overwatch 2 player statistics.
 
-#### Functions:
+#### Main Functions:
+
+The main functions regulate the graphical operations of charts. Included with these functuons are functions that use an API to access data.
+
 - `getPlayerStatsSummary(BattleTag)`: Fetches a summary of player statistics for the given BattleTag.
 - `getHeroes()`: Fetches a list of all heroes.
 - `addPlayerData()`: Adds player data to the chart.
@@ -93,13 +96,19 @@ This file contains functions to interact with the Overfast API and update Overwa
 - `populateStatDropdown(elementId)`: Populates a dropdown menu with player statistics.
 - `displayStats()`: Displays statistics for the selected hero.
 
-### `tracking/script_mr.js`
+#### Fallback Functions
 
-This file contains functions to interact with the Marvel Rivals API.
+The fallback functions come into play when the overfast API is either unreachable or does not have the player data of the default player profile.
+These functions allow for the user to create data objects and modify the different data feilds in these objects.
+
+- functions to be documented
+
+### `js/script_mr.js`
+
+This file contains functions used for the marvel rivals tracker page. This functions enable graphs on the page to function.
 
 #### Functions:
-- `getAccessToken()`: Retrieves an access token for API authentication.
-- `getProfile(battletag)`: Fetches player profile data for the given BattleTag.
+- to be documented
 
 ## Dependencies
 
@@ -115,15 +124,25 @@ This file contains functions to interact with the Marvel Rivals API.
 ## Notes
 
 - The `sessionStorage` is used to cache API responses for faster access.
+  - the fallback system also makes use of session storage so the overwatch tracker page does not get stuck on normal operations without the conditions where normal operation is possible.
 - The `selectedPlayer` variable is used to keep track of the currently selected player.
 
-## Known Issues (solved)
+## Known Issues 
+
+### tracker + Dev Tools (solved)
 
 - **Issue**: Opening dev tools breaks the JS on the `ow_tracker.html` page (discovered 4/12/2025).  
   **Potential Solution**:
   - Remove `async` from the `<script>` tag in the HTML.
   - Alternatively, move items that need to wait for the DOM into event listeners.
 
+### tracker + hero data drought (theorized)
+
+  **Issue**: there is a potential that if the API does not retrieve hero name data, but does retrieve the player summary data that fallback mode will not activate leaving the page crippled.
+  **Potential Solution**:
+    - set fallback flag in script variable `fallback` if hero data fails to load
+      - set fallback flag in sessionStorage as well
+  **notes**: implmenting this fix may be decipitively straight forward and as of 4/27/25 2:09am I have not slept since two days ago and can not be trusted to make this change **yet**.
   ### What You Need to Know
 
   - The fix is to wait to load the script_ow.js file until the page is loaded which an lead to lo longer load times when opening the page.
