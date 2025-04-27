@@ -24,12 +24,33 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (!p0 || !p1) return 'gray'; // fallback
 
                         // Color decision based on next point (p1)
-                        if (p1.parsed.y > 100) {
-                            return 'brown'; // High ratings
-                        } else if (p1.parsed.y < 200) {
-                            return 'red'; // Negative ratings
-                        } else {
-                            return 'blue'; // Normal range
+                        if (p1.parsed.y > 0 && p1.parsed.y < 300) {
+                            document.getElementById('rank').innerHTML = 'Bronze';
+                            return 'brown'; // bronze
+                        } else if (p1.parsed.y >= 300 && p1.parsed.y < 600) {
+                            document.getElementById('rank').innerHTML = 'Silver';
+                            return 'silver'; // silver
+                        } else if (p1.parsed.y >= 600 && p1.parsed.y < 900) {
+                            document.getElementById('rank').innerHTML = 'Gold';
+                            return 'gold'; // gold 
+                        } else if (p1.parsed.y >= 900 && p1.parsed.y < 1200) {
+                            document.getElementById('rank').innerHTML = 'Platium';
+                            return 'teal'; // plat
+                        } else if (p1.parsed.y >= 1200 && p1.parsed.y < 1500) {
+                            document.getElementById('rank').innerHTML = 'Diamond';
+                            return 'blue'; // diamond
+                        } else if (p1.parsed.y >= 1500 && p1.parsed.y < 1800) {
+                            document.getElementById('rank').innerHTML = 'Grand Master';
+                            return 'purple'; // //gm
+                        } else if (p1.parsed.y >= 1800 && p1.parsed.y < 2100) {
+                            document.getElementById('rank').innerHTML = 'Celestial';
+                            return 'orange'; // cel
+                        } else if (p1.parsed.y >= 2100 && p1.parsed.y < 2400) {
+                            document.getElementById('rank').innerHTML = 'Eternity';
+                            return 'lightred'; // Eternity
+                        } else if (p1.parsed.y >= 2400) {
+                            document.getElementById('rank').innerHTML = 'One-Above-All';
+                            return 'red' // one above all
                         }
                     }
                 }

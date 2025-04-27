@@ -13,9 +13,9 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>Marvel Rivals Tracker</h1>
+            <h1>Marvel Rivals Tracker Tool</h1>
             <hr>
-            <h2 id="battletag">Default User</h2>
+            <h2 id="rank">Current Rank: Bronze</h2>
         </div>
     </header>
     <pre></pre>
@@ -31,7 +31,6 @@
     <section class="main">
         <h2>Enter Match Rating Change</h2>
         <div id="info">
-            
             <form id="dataForm">
                 <label for="yValue">Rating Gained/Lost:</label>
                 <input type="number" id="yValue" placeholder="Enter rating change" required>
@@ -39,8 +38,9 @@
                 <button type="submit">Add Data</button>
             </form>
             <br>
-            <button id="exportData">Export Data</button>
+            <label for="importData">Import/Export Data:</label>
             <input type="file" id="importData" accept=".json">
+            <button id="exportData">Export Data</button>
         </div>
         <div>
             <h2>Match Rating Tracker</h2>
@@ -50,8 +50,7 @@
     <pre></pre>
     <footer>
         <p>
-            This site is a fan-made project for educational purposes and is not affiliated with or endorsed by Blizzard Entertainment or Marvel. <br>
-            Overwatch® is a trademark or registered trademark of Blizzard Entertainment, Inc. Marvel Rivals® is a trademark of NetEase. All rights reserved.
+            This site is a fan-made project for educational purposes and is not affiliated with or lay claim to any property mentioned
         </p>
     </footer>
 </body>
