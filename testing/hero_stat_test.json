@@ -1,0 +1,336 @@
+{
+    "Player1": {
+      "general": {
+        "games_lost": 121,
+        "games_played": 340,
+        "games_won": 219,
+        "kda": 2.41,
+        "time_played": 152.11,
+        "winrate": 64.41
+      },
+      "heroes": {
+        "Ana": {
+          "games_lost": 79,
+          "games_played": 151,
+          "games_won": 72,
+          "kda": 1.63,
+          "time_played": 87.02,
+          "winrate": 47.68
+        },
+        "Ashe": {
+          "games_lost": 9,
+          "games_played": 30,
+          "games_won": 21,
+          "kda": 3.21,
+          "time_played": 12.67,
+          "winrate": 70.0
+        },
+        "Baptiste": {
+          "games_lost": 58,
+          "games_played": 94,
+          "games_won": 36,
+          "kda": 3.89,
+          "time_played": 64.43,
+          "winrate": 38.3
+        },
+        "Bastion": {
+          "games_lost": 6,
+          "games_played": 10,
+          "games_won": 4,
+          "kda": 1.01,
+          "time_played": 5.48,
+          "winrate": 40.0
+        },
+        "Brigitte": {
+          "games_lost": 8,
+          "games_played": 20,
+          "games_won": 12,
+          "kda": 4.85,
+          "time_played": 10.8,
+          "winrate": 60.0
+        },
+        "Cassidy": {
+          "games_lost": 17,
+          "games_played": 38,
+          "games_won": 21,
+          "kda": 4.62,
+          "time_played": 18.33,
+          "winrate": 55.26
+        },
+        "D.Va": {
+          "games_lost": 28,
+          "games_played": 58,
+          "games_won": 30,
+          "kda": 2.38,
+          "time_played": 24.65,
+          "winrate": 51.72
+        },
+        "Doomfist": {
+          "games_lost": 15,
+          "games_played": 24,
+          "games_won": 9,
+          "kda": 0.83,
+          "time_played": 10.31,
+          "winrate": 37.5
+        },
+        "Echo": {
+          "games_lost": 2,
+          "games_played": 3,
+          "games_won": 1,
+          "kda": 4.97,
+          "time_played": 1.12,
+          "winrate": 33.33
+        },
+        "Genji": {
+          "games_lost": 22,
+          "games_played": 50,
+          "games_won": 28,
+          "kda": 3.53,
+          "time_played": 22.41,
+          "winrate": 56.0
+        },
+        "Hanzo": {
+          "games_lost": 17,
+          "games_played": 32,
+          "games_won": 15,
+          "kda": 1.39,
+          "time_played": 13.05,
+          "winrate": 46.88
+        },
+        "Illari": {
+          "games_lost": 5,
+          "games_played": 11,
+          "games_won": 6,
+          "kda": 3.25,
+          "time_played": 5.76,
+          "winrate": 54.55
+        },
+        "Junker Queen": {
+          "games_lost": 14,
+          "games_played": 22,
+          "games_won": 8,
+          "kda": 2.87,
+          "time_played": 8.55,
+          "winrate": 36.36
+        },
+        "Junkrat": {
+          "games_lost": 9,
+          "games_played": 20,
+          "games_won": 11,
+          "kda": 1.95,
+          "time_played": 7.74,
+          "winrate": 55.0
+        },
+        "Kiriko": {
+          "games_lost": 21,
+          "games_played": 31,
+          "games_won": 10,
+          "kda": 0.88,
+          "time_played": 14.9,
+          "winrate": 32.26
+        },
+        "Lifeweaver": {
+          "games_lost": 4,
+          "games_played": 9,
+          "games_won": 5,
+          "kda": 2.17,
+          "time_played": 4.1,
+          "winrate": 55.56
+        },
+        "Lucio": {
+          "games_lost": 10,
+          "games_played": 19,
+          "games_won": 9,
+          "kda": 1.45,
+          "time_played": 9.34,
+          "winrate": 47.37
+        },
+        "Mauga": {
+          "games_lost": 12,
+          "games_played": 21,
+          "games_won": 9,
+          "kda": 3.63,
+          "time_played": 8.92,
+          "winrate": 42.86
+        },
+        "Mei": {
+          "games_lost": 8,
+          "games_played": 18,
+          "games_won": 10,
+          "kda": 3.95,
+          "time_played": 7.98,
+          "winrate": 55.56
+        },
+        "Mercy": {
+          "games_lost": 21,
+          "games_played": 36,
+          "games_won": 15,
+          "kda": 0.66,
+          "time_played": 16.43,
+          "winrate": 41.67
+        },
+        "Moira": {
+          "games_lost": 18,
+          "games_played": 29,
+          "games_won": 11,
+          "kda": 1.79,
+          "time_played": 12.34,
+          "winrate": 37.93
+        },
+        "Orisa": {
+          "games_lost": 9,
+          "games_played": 16,
+          "games_won": 7,
+          "kda": 3.28,
+          "time_played": 7.01,
+          "winrate": 43.75
+        },
+        "Pharah": {
+          "games_lost": 2,
+          "games_played": 5,
+          "games_won": 3,
+          "kda": 2.58,
+          "time_played": 2.46,
+          "winrate": 60.0
+        },
+        "Ramattra": {
+          "games_lost": 10,
+          "games_played": 15,
+          "games_won": 5,
+          "kda": 2.75,
+          "time_played": 6.78,
+          "winrate": 33.33
+        },
+        "Reaper": {
+          "games_lost": 16,
+          "games_played": 27,
+          "games_won": 11,
+          "kda": 3.03,
+          "time_played": 11.15,
+          "winrate": 40.74
+        },
+        "Reinhardt": {
+          "games_lost": 7,
+          "games_played": 14,
+          "games_won": 7,
+          "kda": 4.73,
+          "time_played": 6.24,
+          "winrate": 50.0
+        },
+        "Roadhog": {
+          "games_lost": 8,
+          "games_played": 13,
+          "games_won": 5,
+          "kda": 1.32,
+          "time_played": 4.99,
+          "winrate": 38.46
+        },
+        "Sigma": {
+          "games_lost": 9,
+          "games_played": 17,
+          "games_won": 8,
+          "kda": 3.78,
+          "time_played": 7.5,
+          "winrate": 47.06
+        },
+        "Sojourn": {
+          "games_lost": 6,
+          "games_played": 11,
+          "games_won": 5,
+          "kda": 2.65,
+          "time_played": 4.91,
+          "winrate": 45.45
+        },
+        "Soldier: 76": {
+          "games_lost": 11,
+          "games_played": 17,
+          "games_won": 6,
+          "kda": 2.71,
+          "time_played": 7.89,
+          "winrate": 35.29
+        },
+        "Sombra": {
+          "games_lost": 7,
+          "games_played": 12,
+          "games_won": 5,
+          "kda": 2.09,
+          "time_played": 5.11,
+          "winrate": 41.67
+        },
+        "Symmetra": {
+          "games_lost": 2,
+          "games_played": 6,
+          "games_won": 4,
+          "kda": 2.47,
+          "time_played": 2.55,
+          "winrate": 66.67
+        },
+        "Torbjörn": {
+          "games_lost": 1,
+          "games_played": 3,
+          "games_won": 2,
+          "kda": 1.96,
+          "time_played": 1.41,
+          "winrate": 66.67
+        },
+        "Tracer": {
+          "games_lost": 10,
+          "games_played": 18,
+          "games_won": 8,
+          "kda": 2.82,
+          "time_played": 7.92,
+          "winrate": 44.44
+        },
+        "Venture": {
+          "games_lost": 5,
+          "games_played": 8,
+          "games_won": 3,
+          "kda": 3.11,
+          "time_played": 3.54,
+          "winrate": 37.5
+        },
+        "Widowmaker": {
+          "games_lost": 6,
+          "games_played": 9,
+          "games_won": 3,
+          "kda": 2.79,
+          "time_played": 4.32,
+          "winrate": 33.33
+        },
+        "Winston": {
+          "games_lost": 7,
+          "games_played": 12,
+          "games_won": 5,
+          "kda": 2.29,
+          "time_played": 5.83,
+          "winrate": 41.67
+        },
+        "Wrecking Ball": {
+          "games_lost": 9,
+          "games_played": 14,
+          "games_won": 5,
+          "kda": 3.15,
+          "time_played": 6.78,
+          "winrate": 35.71
+        },
+        "Zarya": {
+          "games_lost": 5,
+          "games_played": 9,
+          "games_won": 4,
+          "kda": 2.55,
+          "time_played": 4.21,
+          "winrate": 44.44
+        },
+        "Zenyatta": {
+          "games_lost": 11,
+          "games_played": 17,
+          "games_won": 6,
+          "kda": 3.71,
+          "time_played": 7.43,
+          "winrate": 35.29
+        }
+      },
+      "roles": {}
+    }
+  }
+  
