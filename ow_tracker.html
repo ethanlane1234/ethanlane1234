@@ -21,6 +21,7 @@
             <h1>Owerwatch Tracker</h1>
             <hr>
             <h2 id="battletag">Default User</h2> <!-- default profile -->
+            <input type="checkbox" id="modeToggleButton" onclick="toggleMode()">Toggle Manual Input Mode</input>
         </div>
     </header>
     <div class="navbar">
@@ -37,6 +38,7 @@
         <div id="info">
             <input type="text" id="battleTagInput" placeholder="Enter BattleTag" list="battleTagList">
             <datalist id="battleTagList">
+                <option>TeKrop-2217</option> <!-- default profile -->
                 <!-- update from js -->
             </datalist>
             <button id="addData" onclick="addPlayerData()">Add Player Data</button>
@@ -74,7 +76,7 @@
         <p>
             This site is a fan-made project for educational purposes and is not affiliated with or endorsed by Blizzard Entertainment. <br>
             Overwatch® is a trademark or registered trademark of Blizzard Entertainment, Inc. in the U.S. and/or other countries. ©2016 Blizzard Entertainment, Inc. All rights reserved.
-          </p>
+        </p>
                             
     </footer>
 </body>

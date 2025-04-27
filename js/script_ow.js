@@ -58,7 +58,11 @@ function getHeroesFromSession() {
  * Fetches hero stats and player summaries if not already stored.
  */
 async function ASYNC_main() { // these variables/functions need to use the await keyword
-    if (sessionStorage.getItem('isInFallBackMode')){console.log('fallback moode');setFallBackUI();return;} // check if in fall back mode after page reloads
+    if (sessionStorage.getItem('isInFallBackMode')) {
+        console.log('fallback moode');
+        setFallBackUI();
+        return;
+    } // check if in fall back mode after page reloads
     if (!hero_stats){hero_stats = await getHeroes();console.log('fetching hero names');}
     if (!player_summary){player_summary = await getPlayerStatsSummary(selectedPlayer);console.log('fetching player summary');}
     if (fallback) {return;} // stop when player bad
@@ -117,6 +121,14 @@ async function getHeroes() {
 }
 
 /* ################################# MISC ####################################### */
+/**
+ * updates ideally an h2 element from the value of a input feild.
+ * @param {*} input_ele 
+ * @param {*} output_ele 
+ */
+function updateTag(input_ele, output_ele) {
+    document.getElementById(output_ele).innerHTML = document.getElementById(input_ele).value;
+}
 
 /**
  * Iterates through a JSON object and logs hero names and roles.
@@ -447,7 +459,7 @@ function updateHeroStatChart() { /* call is nested inside call to other chart to
  * This is the is the main function to look at when tying together the graphs and the data from fetch requests
  */
 async function addPlayerData() {
-    const battleTagInput = document.getElementById('battleTagInput').value;
+    const battleTagInput = document.getElementById('battleTagInput').value || document.getElementById('playerName').value; // switch between the ids used for each operation mode
     if (!sessionStorage.getItem('isInFallBackMode')) {
         if (battleTagInput != selectedPlayer) {
             selectedPlayer = battleTagInput;
@@ -692,6 +704,7 @@ function setFallBackUI() {
     
     addStat();
     output.addEventListener('input', setPlayerToOutput, 2);
+    nameInput.addEventListener('input', function() {updateTag(nameInput.id, 'battletag')});
 }
 
 function setPlayerToOutput() {
@@ -706,6 +719,62 @@ function setPlayerToOutput() {
     }
 }
 
+/**
+ * can be used to switch between operating modes (fallback/normal)
+ */
+async function toggleMode() {
+    // prepare gobal variables for mode switch
+    sessionStorage.clear();
+    selectedPlayer = default_profile;
+    hero_stats = null;
+    player_summary = null;
+    if (fallback) {
+        // Try to go back to normal mode
+        try {
+            fallback = false;
+            //sessionStorage.setItem('isInFallBackMode', fallback);
+            document.getElementById('info').innerHTML =''; // clear info box
+            document.getElementById('info').innerHTML = `
+            
+            <input type="text" id="battleTagInput" placeholder="Enter BattleTag" list="battleTagList">
+            <datalist id="battleTagList">
+                <option>${default_profile}</option>
+                <!-- update from js -->
+            </datalist>
+            <button id="addData" onclick="addPlayerData()">Add Player Data</button>
+
+            <label hidden id="heroLabel" for="heroDropdown">Select a Hero:</label>
+            <select id="heroDropdown" onchange="displayStats();updateHeroStatChart();">
+                <option value="">-- Select a Hero --</option>
+            </select>
+
+            <label hidden id="statLabel" for="statDropdown">Select a Stat:</label>
+            <select id="statDropdown" onchange="updateStatChart();">
+                <option value="">-- Select a Stat --</option>
+            </select>    
+            `; // clear fallback UI
+            document.getElementById('heroLabel').style.display = 'none';
+            document.getElementById('statLabel').style.display = 'none';
+            document.getElementById('battleTagInput').addEventListener('input', function() {updateTag('battleTagInput', 'battletag')}); // readd event listener
+
+
+            ASYNC_main();
+            console.log('Switched to normal mode');
+            info.style.columnCount = 2; // changes styling to work for fallback system  
+        } catch (error) {
+            console.error('Failed to switch to normal mode, staying in fallback:', error);
+            fallback = true;
+            setFallBackUI();
+        }
+    } else {
+        // Switch to fallback mode
+        fallback = true;
+        setFallBackUI();
+        console.log('Switched to fallback mode');
+    }
+    //sessionStorage.setItem('isInFallBackMode', fallback);
+}
+
 /* ############################### MAIN ######################################## */
 
 /* Main */
@@ -713,3 +782,6 @@ document.getElementById('heroLabel').style.display = 'none';
 document.getElementById('statLabel').style.display = 'none';
 ASYNC_main();
 document.addEventListener('DOMContentLoaded', populateBattleTagList());
+document.getElementById('battleTagInput').addEventListener('input', function() {updateTag('battleTagInput', 'battletag')});
+
+
