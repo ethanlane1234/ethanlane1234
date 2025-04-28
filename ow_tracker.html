@@ -15,7 +15,7 @@
     <link rel="html" href="about.html">
     <script src="js/script_ow.js" defer></script>
 </head>
-<body>
+<body id="top">
     <header>
         <div class="header-content">
             <h1>Owerwatch Tracker</h1>
@@ -33,8 +33,8 @@
             <a href="guide.html">Strategies and Guides</a>
         </div>
     </div>
-    <pre></pre>
-    <section class="main">
+    <pre><a href="#user-guide">Jump To User Guide</a></pre>
+    <section class="main">            
         <div id="info">
             <input type="text" id="battleTagInput" placeholder="Enter BattleTag" list="battleTagList">
             <datalist id="battleTagList">
@@ -70,8 +70,37 @@
         <h2>Bar Graph of Hero Stats</h2>
 
         <canvas id="heroStatChart"></canvas>
+
+        <div class="guides" id="user-guide">
+            <h2>User Guide</h2>
+            <p>
+                Welcome to the Overwatch Tracker! This tool allows players to dynamically view their gameplay statistics through a series of automatically generated bar graphs. By entering your BattleTag, you can instantly retrieve and visualize your current performance data, helping you better understand your strengths and areas for improvement.
+            </p>
+            <hr>
+            <p>
+                <ul>
+                    <h3>General Operations</h3>
+                    <li>Entered battletags must replace the "#" symbol with the "-" symbol. Your profile must also be set to public status.</li>
+                    <br>
+                    <li>Use the selection feilds below to select which hero and statistic you want to see vizualized.</li>
+                    <br>
+                    <li>Clicking the "add player Data" button will add the slected data to the "Custom stat View", any data can be mixed and matched here.</li>
+                    <br>
+                    <li>Just by using the selection boxes, the other two graphs will autopopulate to show the requested hero across stats or a specific stat for each hero.</li>
+                    <br>
+                    <hr>
+                    <h3>Manual Mode</h3>
+                    <li>To enable manual mode check the box under the username that says "Toggle Manual Input Mode"</li>
+                    <li>If collection of data is impossible this page will open in manual input mode. In this mode you can manually construct the data yourself with an intutive GUI</li>
+                    <li>Pressing the "add stat" button in manual mode will select whatever player you currently have inputted into the player text box and attempt to read that players stats</li>
+                    <li>In Manual Mode the selection boxes located at the top of the GUI work the same as normal mode. However, the data within them is gotten by manually entering the data in the GUI below and pressing the add stat button.</li>
+                    <br>
+                    <li>A Final note for manual mode is that it is mainly intended for when we are unable to access any player data, so switching between the two modes often is not recommended as it could lead to abnormal behavior</li>
+                </ul>
+            </p>
+        </div>
     </section>
-    <pre></pre>
+    <pre><a href="#top">Return to Top</a></pre>
     <footer>
         <p>
             This site is a fan-made project for educational purposes and is not affiliated with or endorsed by Blizzard Entertainment. <br>

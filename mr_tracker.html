@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style_mobile.css" media="screen and (max-width: 700px)">
     <script src="js/script_mr.js" defer></script>
 </head>
-<body>
+<body id="top">
     <header>
         <div class="header-content">
             <h1>Marvel Rivals Tracker Tool</h1>
@@ -18,7 +18,7 @@
             <h2 id="rank">Current Rank: Bronze</h2>
         </div>
     </header>
-    <pre></pre>
+    <pre><a href="#user-guide">Jump To User Guide</a></pre>
     <div class="navbar">
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -46,8 +46,40 @@
             <h2>Match Rating Tracker</h2>
             <canvas id="dynamicChart"></canvas>
         </div>
+        
+        <div id="user-guide" class="guides">
+            <ul>
+                <h3>General Operations</h3>
+                <li>This tool is a tracking tool for tracking the trend of your rank in Marvel Rivals.</li>
+                <br>
+                <li>Submit a rating change after each game using the input form. The chart automatically updates and adjusts your rank color and label based on your total rating.</li>
+                <br>
+                <li>You can export your current chart data to a JSON file to save your progress.</li>
+                <br>
+                <li>You can also import previously saved JSON files to restore your chart data and continue tracking.</li>
+                <hr>
+                <h3>Import File Specifications</h3>
+                <li>The import file must be a JSON file.</li>
+                <br>
+                <li>The JSON structure must include:
+                    <ul>
+                        <li><code>labels</code>: an array of game labels (e.g., "Game 1", "Game 2", etc.).</li>
+                        <li><code>dataset</code>: an array of corresponding rating values (numbers) matching the labels.</li>
+                    </ul>
+                </li>
+                <br>
+                <li>Example format:
+                    <pre>
+        {
+          "labels": ["Game 1", "Game 2"],
+          "dataset": [150, 300]
+        }
+                    </pre>
+                </li>
+            </ul>
+        </div>        
     </section>
-    <pre></pre>
+    <pre><a href="#top">Return to Top</a></pre>
     <footer>
         <p>
             This site is a fan-made project for educational purposes and is not affiliated with or lay claim to any property mentioned
