@@ -459,7 +459,13 @@ function updateHeroStatChart() { /* call is nested inside call to other chart to
  * This is the is the main function to look at when tying together the graphs and the data from fetch requests
  */
 async function addPlayerData() {
-    const battleTagInput = document.getElementById('battleTagInput').value || document.getElementById('playerName').value; // switch between the ids used for each operation mode
+    var battleTagInput;
+    if (document.getElementById('battleTagInput')) { // switch between the ids used for each operation mode
+        battleTagInput = document.getElementById('battleTagInput').value;
+    } else {
+        battleTagInput = document.getElementById('playerName').value; 
+    }
+    
     if (!sessionStorage.getItem('isInFallBackMode')) {
         if (battleTagInput != selectedPlayer) {
             selectedPlayer = battleTagInput;
